@@ -100,61 +100,104 @@
   </head>
   <body>
   <h1>The Bear Necessities</h1>
-  <div class="form-container">
-    <form>
-      <label for="search">Search:</label>
-      <input type="text" id="search" name="search">
-      <button type="button" onclick="searchImages()">Submit</button>
-    </form>
-  </div>
   <div class="image-container">
     <a href="Image/1.png" target="_blank"><img id="image" src="Image/1.png" alt="Bear Image"></a>
   </div>
   <div id="myModal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImage">
-  </div>
-
-  <script>
+    </div>
     // Get the modal
-    var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal");
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("image");
+var modalImg = document.getElementById("modalImage");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+}
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    };
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+    /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
 
-    // Function to search for and display image
-    function searchImages() {
-      var input, filter, img, a, i;
-      input = document.getElementById("search");
-      filter = input.value.toUpperCase();
-      img = document.getElementById("image");
-      a = img.parentNode;
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
 
-      // Search for matching image
-      for (i = 1; i <= 5; i++) {
-        if (filter === "BEAR" + i) {
-          img.src = "Image/" + i + ".png";
-          a.href = "Image/" + i + ".png";
-          break;
-        }
-      }
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
 
-      // Display modal with full-size image
-      modal.style.display = "block";
-      var modalImg = document.getElementById("modalImage");
-      modalImg.src = img.src;
-    }
-  </script>
-</body>
+/* Add Animation */
+.modal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
