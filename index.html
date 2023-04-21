@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Viewer</title>
+</head>
+<body>
+  <h1>Image Viewer</h1>
+  <input type="text" id="item-number">
+  <button onclick="showImage()">Show Image</button>
+  <img id="image" src="">
+</body>
+</html>
+function showImage() {
+  // Get the item number from the input field.
+  var itemNumber = document.getElementById("item-number").value;
+
+  // Get the image file from the folder.
+  var imageFile = `images/${itemNumber}.png`;
+
+  // Load the image into the image element.
+  document.getElementById("image").src = imageFile;
+}
