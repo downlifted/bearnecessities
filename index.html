@@ -2,15 +2,69 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <h1>The Bear Necessities</h1>
-    <title>Image Display:</title>
+    <title>The Bear Necessities</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        color: #333;
+      }
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+      }
+      .form-container label {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+      .form-container input[type=text] {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 20px;
+      }
+      .form-container button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .form-container button:hover {
+        background-color: #555;
+      }
+      .image-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .image-container img {
+        max-width: 100%;
+        max-height: 400px;
+      }
+    </style>
   </head>
   <body>
-    <label for="item-number">Enter Item Number:</label>
-    <input type="text" id="item-number">
-    <button onclick="displayImage()">Submit</button>
-    <br>
-    <img id="item-image" src="" alt="Item Image">
+    <h1>The Bear Necessities</h1>
+    <div class="form-container">
+      <label for="item-number">Enter Item Number:</label>
+      <input type="text" id="item-number">
+      <button onclick="displayImage()">Submit</button>
+    </div>
+    <div class="image-container">
+      <img id="item-image" src="" alt="Item Image">
+    </div>
     <script>
       function displayImage() {
         var itemNumber = document.getElementById("item-number").value;
