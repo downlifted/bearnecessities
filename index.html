@@ -6,12 +6,13 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
+        background-color: #161a1d;
+        color: #fff;
       }
       h1 {
         text-align: center;
         margin-top: 50px;
-        color: #333;
+        color: #f80bda;
       }
       .form-container {
         display: flex;
@@ -22,7 +23,7 @@
       }
       .form-container label {
         font-size: 20px;
-        color: #333;
+        color: #f80bda;
         margin-bottom: 10px;
       }
       .form-container input[type=text] {
@@ -31,9 +32,15 @@
         border-radius: 5px;
         border: none;
         margin-bottom: 20px;
+        background-color: #21262b;
+        color: #fff;
+      }
+      .form-container input[type=text]:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #f80bda;
       }
       .form-container button {
-        background-color: #333;
+        background-color: #f80bda;
         color: #fff;
         padding: 10px 20px;
         font-size: 16px;
@@ -42,7 +49,7 @@
         cursor: pointer;
       }
       .form-container button:hover {
-        background-color: #555;
+        background-color: #ff2d99;
       }
       .image-container {
         display: flex;
@@ -52,11 +59,23 @@
       .image-container img {
         max-width: 100%;
         max-height: 400px;
-        border: 1px solid #ccc;
+        border: 1px solid #f80bda;
         transition: transform 0.2s ease-in-out;
       }
       .image-container img:hover {
         transform: scale(1.1);
+      }
+      .dark-mode-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 20px;
+        color: #f80bda;
+        cursor: pointer;
+        z-index: 1;
+      }
+      .dark-mode-toggle:hover {
+        color: #ff2d99;
       }
     </style>
   </head>
@@ -72,6 +91,10 @@
         <img id="item-image" src="Images/main.png" alt="Item Image">
       </a>
     </div>
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+      <i class="fas fa-moon"></i>
+    </div>
+    <script src="https://kit.fontawesome.com/84f491c976.js"></script>
     <script>
       function displayImage() {
         var itemNumber = document.getElementById("item-number").value;
