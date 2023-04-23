@@ -78,6 +78,7 @@
     </div>
     <div class="image-container">
       <img id="item-image" src="Images/1.png" alt="Item Image">
+      <img id="item-image-2" src="Images/2.png" alt="Item Image">
     </div>
     <script>
       function showImage() {
@@ -87,7 +88,9 @@
           return;
         }
         const image = document.getElementById("item-image");
-        image.src = `Images/${itemNumber}.png`;
+        image.src = `bears/${itemNumber}.png`;
+        const image2 = document.getElementById("item-image-2");
+        image2.src = `Images/${itemNumber + 1}.png`;
       }
     </script>
   </body>
